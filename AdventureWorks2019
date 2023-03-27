@@ -1,0 +1,28 @@
+-- Microsoft SQL Server Assignment
+USE AdventureWorks2019;
+
+-- 1. How many people in the DB do not have a middle name? Show the query
+-- QUERY PROCEDURE
+-- Select table with list of people and their names (Person.Person);
+SELECT * FROM Person.Person;
+-- Select the column(s) you need in the table;
+SELECT FirstName, MiddleName, LastName FROM Person.Person;
+-- Select only the rows that have the Middle name as "Null" values
+SELECT FirstName, MiddleName, LastName FROM Person.Person
+WHERE MiddleName IS NULL;
+-- Count the number of people that have their middle name missing from the table;
+SELECT COUNT (*) AS 'NO. OF PEOPLE WITHOUT MIDDLENAME' FROM Person.Person
+WHERE MiddleName IS NULL;
+
+-- 2. How many email addresses do not end in adventure-works.com? Show the query.
+-- QUERY PROCEDURE
+-- Select table with list of peoples' email (Person.EmailAddress);
+SELECT * FROM Person.EmailAddress;
+-- Select the column(s) you need in the table;
+SELECT EmailAddress FROM Person.EmailAddress;
+-- Select the rows that have emails not ending in 'adventure-works.com';
+SELECT EmailAddress FROM Person.EmailAddress
+WHERE EmailAddress NOT LIKE '%adventure-works.com';
+-- Count the number of email addresses do not end in adventure-works.com;
+SELECT COUNT (*) AS NO_OF_UNIQUE_EMAILADDRESS FROM Person.EmailAddress
+WHERE EmailAddress NOT LIKE '%adventure-works.com';
